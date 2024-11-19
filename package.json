@@ -11,10 +11,12 @@
   "description": "",
   "devDependencies": {
     "@types/dotenv": "^8.2.3",
-    "@types/node": "^22.9.0"
+    "@types/node": "^22.9.0",
+    "@types/prompt-sync": "^4.2.3"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "mysql2": "^3.11.4"
+    "mysql2": "^3.11.4",
+    "prompt-sync": "^4.2.0"
   }
 }
