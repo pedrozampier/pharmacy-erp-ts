@@ -1,9 +1,9 @@
 export default class Pessoa {
 
-    id: number;
-    nome!: string;
-    email!: string;
-    cpf!: string;
+    private id: number;
+    private nome!: string;
+    private email!: string;
+    private cpf!: string;
 
     constructor(id: number, nome: string, email: string, cpf: string) {
         this.id = id;

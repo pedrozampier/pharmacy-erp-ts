@@ -2,8 +2,8 @@ import Pessoa from "./Pessoa";
 
 export default class Cliente extends Pessoa {
     
-    cartaoDaLoja: boolean;
-    limiteCredito: number;
+    private cartaoDaLoja: boolean;
+    private limiteCredito: number;
 
     constructor(id: number, nome: string, email: string, cpf: string, cartaoDaLoja: boolean, limiteCredito: number) {
         super(id, nome, email, cpf);

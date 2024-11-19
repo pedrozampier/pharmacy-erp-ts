@@ -3,12 +3,12 @@ import Cliente from './Cliente';
 import Produto from './Produto';
 
 export default class Venda {
-    id: number;
-    data: Date;
-    valor!: number;
-    farmaceutico: Farmaceutico;
-    cliente: Cliente;
-    produtos: Produto[] = [];
+    private id: number;
+    private data: Date;
+    private valor!: number;
+    private farmaceutico: Farmaceutico;
+    private cliente: Cliente;
+    private produtos: Produto[] = [];
 
     constructor(id: number, data: Date, farmaceutico: Farmaceutico, cliente: Cliente) {
         this.id = id;

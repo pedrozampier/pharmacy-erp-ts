@@ -1,8 +1,8 @@
 export default class Produto {
 
-    id: number;
-    nome!: string;
-    preco!: number;
+    private id: number;
+    private nome!: string;
+    private preco!: number;
 
     constructor(id: number, nome: string, preco: number) {
         this.id = id;

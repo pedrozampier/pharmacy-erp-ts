@@ -2,8 +2,8 @@ import Pessoa from "./Pessoa";
 
 export default class Farmaceutico extends Pessoa {
     
-    crf!: string;
-    salario: number;
+    private crf!: string;
+    private salario: number;
 
     constructor(id: number, nome: string, email: string, cpf: string, crf: string, salario: number) {
         super(id, nome, email, cpf);

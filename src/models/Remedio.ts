@@ -2,7 +2,7 @@ import Produto from "./Produto";
 
 export default class Remedio extends Produto{
 
-    receitaObrigatoria: boolean;
+    private receitaObrigatoria: boolean;
 
     constructor(id: number, nome: string, preco: number, receitaObrigatoria: boolean) {
         super(id, nome, preco);
