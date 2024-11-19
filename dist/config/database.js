@@ -19,7 +19,7 @@ function testConnection() {
     connection.connect((err) => {
         if (err) {
             console.error('Erro ao conectar no banco de dados:', err);
-            process.exit(1); // Encerra a aplicação em caso de erro
+            process.exit(1);
         }
         else {
             console.log('Conectado ao banco de dados com sucesso!');
