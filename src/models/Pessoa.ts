@@ -23,7 +23,7 @@ export default class Pessoa {
     public setNome(nome: string): void {
         let nomeSemEspacos: string = nome.trim();
 
-        if(nomeSemEspacos.length >= 0){
+        if(nomeSemEspacos.length <= 0){
             throw new Error("Nome inválido");
         }
 
@@ -37,7 +37,7 @@ export default class Pessoa {
     public setEmail(email: string): void {
         let emailSemEspacos: string = email.trim();
 
-        if(emailSemEspacos.length >= 0){
+        if(emailSemEspacos.length <= 0){
             throw new Error("Email inválido");
         }
 
@@ -51,7 +51,7 @@ export default class Pessoa {
     public setCpf(cpf: string): void {
         let cpfSemEspacos: string = cpf.trim();
 
-        if(cpfSemEspacos.length >= 0 || cpfSemEspacos.length < 11){
+        if(cpfSemEspacos.length <= 0 || cpfSemEspacos.length != 11){
             throw new Error("CPF inválido");
         }
 
