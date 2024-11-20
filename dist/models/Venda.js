@@ -54,7 +54,8 @@ class Venda {
     }
     setValorDaVenda() {
         let valor = 0;
-        this.produtos.forEach(produto => {
+        let itens = this.getItensVenda();
+        itens.forEach(produto => {
             valor += produto.getPreco();
         });
         this.valor = valor;

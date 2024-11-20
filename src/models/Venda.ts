@@ -77,7 +77,9 @@ export default class Venda {
     public setValorDaVenda(): void {
         let valor: number = 0;
 
-        this.produtos.forEach(produto => {
+        let itens: Produto[] = this.getItensVenda();
+
+        itens.forEach(produto => {
             valor += produto.getPreco();
         });
 
