@@ -43,15 +43,6 @@ class Venda {
         this.produtos.splice(index, 1);
         this.setValorDaVenda();
     }
-    addRemedio(remedio) {
-        this.remedios.push(remedio);
-        this.setValorDaVenda();
-    }
-    removeRemedio(remedio) {
-        let index = this.remedios.indexOf(remedio);
-        this.remedios.splice(index, 1);
-        this.setValorDaVenda();
-    }
     setValorDaVenda() {
         let valor = 0;
         let itens = this.getItensVenda();

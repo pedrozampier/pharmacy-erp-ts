@@ -66,17 +66,6 @@ export default class Venda {
         this.setValorDaVenda();
     }
 
-    public addRemedio(remedio: Remedio): void {
-        this.remedios.push(remedio);
-        this.setValorDaVenda();
-    }
-
-    public removeRemedio(remedio: Remedio): void {
-        let index: number = this.remedios.indexOf(remedio);
-        this.remedios.splice(index, 1);
-        this.setValorDaVenda();
-    }
-
     public setValorDaVenda(): void {
         let valor: number = 0;
 
