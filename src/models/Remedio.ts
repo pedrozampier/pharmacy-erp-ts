@@ -1,12 +1,14 @@
-import Produto from "./Produto";
+import { Mercadoria } from "./Mercadoria";
 
-export default class Remedio extends Produto{
+export default class Remedio extends Mercadoria {
 
     private receitaObrigatoria: boolean;
+    private tarja: string;
 
-    constructor(id: number, nome: string, preco: number, receitaObrigatoria: boolean) {
+    constructor(id: number, nome: string, preco: number, receitaObrigatoria: boolean, tarja: string) {
         super(id, nome, preco);
         this.receitaObrigatoria = receitaObrigatoria;
+        this.tarja = tarja;
     }
 
     public isReceitaObrigatoria(): boolean {
@@ -15,5 +17,13 @@ export default class Remedio extends Produto{
 
     public setReceitaObrigatoria(): void {
         this.receitaObrigatoria = !this.receitaObrigatoria;
+    }
+
+    public descarte(): void {
+        console.log("Produto não reciclavel, descarte somente em locais autorizados");
+    }
+
+    public override getDescricao(): string {
+        return `Remédio: ${this.getNome()}, Preço: ${this.getPreco().toFixed(2)}, Receita Obrigatória: ${this.isReceitaObrigatoria() ? "Sim" : "Não"}, Tarja: ${this.tarja}`;
     }
 }
