@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class Venda {
     constructor(id, data, farmaceutico, cliente) {
         this.produtos = [];
+        this.remedios = [];
         this.id = id;
         this.data = data;
         this.farmaceutico = farmaceutico;
@@ -29,8 +30,9 @@ class Venda {
     setCliente(cliente) {
         this.cliente = cliente;
     }
-    getProdutos() {
-        return this.produtos;
+    getItensVenda() {
+        let itens = this.produtos.concat(this.remedios);
+        return itens;
     }
     addProduto(item) {
         this.produtos.push(item);
@@ -41,9 +43,19 @@ class Venda {
         this.produtos.splice(index, 1);
         this.setValorDaVenda();
     }
+    addRemedio(remedio) {
+        this.remedios.push(remedio);
+        this.setValorDaVenda();
+    }
+    removeRemedio(remedio) {
+        let index = this.remedios.indexOf(remedio);
+        this.remedios.splice(index, 1);
+        this.setValorDaVenda();
+    }
     setValorDaVenda() {
         let valor = 0;
-        this.produtos.forEach(produto => {
+        let itens = this.getItensVenda();
+        itens.forEach(produto => {
             valor += produto.getPreco();
         });
         this.valor = valor;

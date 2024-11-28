@@ -10,6 +10,7 @@ export default class Venda {
     private farmaceutico: Farmaceutico;
     private cliente: Cliente;
     private produtos: Produto[] = [];
+    private remedios: Remedio[] = [];
 
     constructor(id: number, data: Date, farmaceutico: Farmaceutico, cliente: Cliente) {
         this.id = id;
@@ -46,8 +47,9 @@ export default class Venda {
         this.cliente = cliente;
     }
 
-    public getProdutos(): Produto[] {
-        return this.produtos;
+    public getItensVenda(): Produto[] {
+        let itens: Produto[] = this.produtos.concat(this.remedios);
+        return itens;
     }
 
     public addProduto(produto: Produto): void;
@@ -64,10 +66,23 @@ export default class Venda {
         this.setValorDaVenda();
     }
 
+    public addRemedio(remedio: Remedio): void {
+        this.remedios.push(remedio);
+        this.setValorDaVenda();
+    }
+
+    public removeRemedio(remedio: Remedio): void {
+        let index: number = this.remedios.indexOf(remedio);
+        this.remedios.splice(index, 1);
+        this.setValorDaVenda();
+    }
+
     public setValorDaVenda(): void {
         let valor: number = 0;
 
-        this.produtos.forEach(produto => {
+        let itens: Produto[] = this.getItensVenda();
+
+        itens.forEach(produto => {
             valor += produto.getPreco();
         });
 
