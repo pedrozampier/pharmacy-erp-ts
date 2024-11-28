@@ -32,8 +32,8 @@ class Venda {
     getProdutos() {
         return this.produtos;
     }
-    addProduto(produto) {
-        this.produtos.push(produto);
+    addProduto(item) {
+        this.produtos.push(item);
         this.setValorDaVenda();
     }
     removeProduto(produto) {
