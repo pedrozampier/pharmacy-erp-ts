@@ -1,6 +1,7 @@
 import Farmaceutico from './Farmaceutico';
 import Cliente from './Cliente';
 import Produto from './Produto';
+import Remedio from './Remedio';
 
 export default class Venda {
     private id: number;
@@ -49,8 +50,11 @@ export default class Venda {
         return this.produtos;
     }
 
-    public addProduto(produto: Produto): void {
-        this.produtos.push(produto);
+    public addProduto(produto: Produto): void;
+    public addProduto(remedio: Remedio): void;
+
+    public addProduto(item: Produto | Remedio): void {
+        this.produtos.push(item);
         this.setValorDaVenda();
     }
 
