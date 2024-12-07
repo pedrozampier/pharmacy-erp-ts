@@ -6,16 +6,26 @@ import Remedio from "./models/Remedio";
 import Venda from "./models/Venda";
 
 //let pessoa = new Pessoa(1, "João", "joao@gmail.com", "12345678900");
-let cliente = new Cliente(1, "Jonas", "joao@gmail.com", "12345678900", true, 1000);
-let farmaceutico = new Farmaceutico(1, "Jonas", "joao@gmail.com", "12345678900", "234-0", 1500);
+let cliente = new Cliente(1, "Jonas", "jonas@gmail.com", "12345678900", true, 1000);
+let farmaceutico = new Farmaceutico(1, "Joao", "joao@gmail.com", "12345678900", "234-0", 1500);
 
 let produto = new Produto(1, "Desodorante", 10);
-let remedio = new Remedio(1, "Dipirona", 5, true);
+let remedio = new Remedio(1, "Dipirona", 5, false, "Não tarjado");
 
-let venda = new Venda(1, new Date(), farmaceutico, cliente);
+let date = new Date();
+date.setDate(date.getDate() - 1);
 
-venda.addProduto(produto);
-venda.addProduto(remedio);
+//let venda = new Venda(1, new Date(), farmaceutico, cliente);
+let vendaComDataRetroativa = new Venda(1, date, farmaceutico, cliente);
 
-console.log(venda.getProdutos());
-console.log(venda.getValorDaVenda());
+// venda.addProduto(produto);
+// venda.addProduto(remedio);
+
+// produto.descarte();
+// remedio.descarte();
+
+console.log(remedio.getDescricao());
+console.log(produto.getDescricao());
+
+//console.log(venda.getProdutos());
+//console.log(venda.getValorDaVenda());   
