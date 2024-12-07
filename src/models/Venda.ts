@@ -2,10 +2,12 @@ import Farmaceutico from './Farmaceutico';
 import Cliente from './Cliente';
 import Produto from './Produto';
 import Remedio from './Remedio';
+import VendaException from '../exceptions/VendaException';
 
 export default class Venda {
+
     private id: number;
-    private data: Date;
+    private data!: Date;
     private valor!: number;
     private farmaceutico: Farmaceutico;
     private cliente: Cliente;
@@ -14,7 +16,7 @@ export default class Venda {
 
     constructor(id: number, data: Date, farmaceutico: Farmaceutico, cliente: Cliente) {
         this.id = id;
-        this.data = data;
+        this.setDataParaVenda(data);
         this.farmaceutico = farmaceutico;
         this.cliente = cliente;
     }
@@ -28,7 +30,22 @@ export default class Venda {
     }
 
     public setData(data: Date): void {
+
+        const currentDate = new Date();
+
+        if (data < currentDate) {
+            throw new VendaException();
+        }
+
         this.data = data;
+    }
+
+    public setDataParaVenda(data: Date): void {
+        try {
+            this.setData(data);
+        } catch (error: any) {
+            console.error(error.message);
+        }
     }
 
     public getFarmaceutico(): Farmaceutico {
@@ -56,13 +73,29 @@ export default class Venda {
     public addProduto(remedio: Remedio): void;
 
     public addProduto(item: Produto | Remedio): void {
-        this.produtos.push(item);
+
+        if(item instanceof Remedio) {
+            this.remedios.push(item);
+        } else {
+            this.produtos.push(item);
+        }
+
         this.setValorDaVenda();
     }
 
-    public removeProduto(produto: Produto): void {
-        let index: number = this.produtos.indexOf(produto);
-        this.produtos.splice(index, 1);
+    public removeProduto(remedio: Remedio): void;
+    public removeProduto(produto: Produto): void;
+
+    public removeProduto(produto: Produto | Remedio): void {
+
+        if(produto instanceof Produto) {
+            let index: number = this.produtos.indexOf(produto);
+            this.produtos.splice(index, 1);
+        } else {
+            let index: number = this.remedios.indexOf(produto);
+            this.remedios.splice(index, 1);
+        }
+        
         this.setValorDaVenda();
     }
 
