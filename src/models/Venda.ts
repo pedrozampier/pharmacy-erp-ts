@@ -32,6 +32,9 @@ export default class Venda {
     public setData(data: Date): void {
 
         const currentDate = new Date();
+        
+        currentDate.setHours(0, 0, 0, 0);
+        data.setHours(0, 0, 0, 0);
 
         if (data < currentDate) {
             throw new VendaException();
