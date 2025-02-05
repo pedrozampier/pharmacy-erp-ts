@@ -1,10 +1,12 @@
 import Remedio from '../models/Remedio';
+import { Tarja } from '../models/Tarja';
+
 
 describe('Remedio', () => {
     let remedio: Remedio;
 
     beforeEach(() => {
-        remedio = new Remedio(1, 'Paracetamol', 10.0, true, 'Vermelha');
+        remedio = new Remedio(1, 'Paracetamol', 10.0, true, Tarja.VERMELHA);
     });
 
     test('should create an instance of Remedio', () => {
