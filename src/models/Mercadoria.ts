@@ -2,9 +2,9 @@ import { IMercadoria } from "../interface/IMercadoria";
 
 export abstract class Mercadoria implements IMercadoria {
 
-    private id: number;
-    private nome: string;
-    private preco: number;
+    protected id: number;
+    protected nome: string;
+    protected preco: number;
 
     constructor(id: number, nome: string, preco: number) {
         this.id = id;

@@ -3,8 +3,8 @@ import { Tarja } from "./Tarja";
 
 export default class Remedio extends Mercadoria {
 
-    private receitaObrigatoria: boolean;
-    private tarja: Tarja;
+    protected receitaObrigatoria: boolean;
+    protected tarja: Tarja;
 
     constructor(id: number, nome: string, preco: number, receitaObrigatoria: boolean, tarja: Tarja) {
         super(id, nome, preco);
